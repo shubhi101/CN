@@ -1,0 +1,3 @@
+When the process calling popen() is having PIPE in read (r) mode, the process (command) executed by the shell should write to standard output. 
+When the process calling popen() is having PIPE in write(w) mode, the process (command) executed by the shell should read from standard input. This is required for a successful IPC using PIPE opened using popen(). 
+In other words, Writing to such a stream writes to the standard input of the command; the command's standard output is the same as that of the process that called popen(), unless this is altered by the command itself. Conversely, reading from a "popened" stream reads the command's standard output, and the command's standard input is the same as that of the process that called popen().
